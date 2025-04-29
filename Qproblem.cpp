@@ -136,9 +136,6 @@
 //}
 
 
-
-
-/*
 #include <iostream>
 #include <vector>
 #include <chrono>
@@ -155,65 +152,6 @@ bool is_safe(const vector<int>& board, int row, int col) {
     }
     return true;
 }
-bool solve(vector<int>& board, int row, int n) {
-    if (row == n)
-        return true;
-    for (int col = 0; col < n; ++col) {
-        if (is_safe(board, row, col)) {
-            board[row] = col;
-            if (solve(board, row + 1, n))
-                return true;
-        }
-    }
-    return false;
-}
-double dfs_blind(int n) {
-    vector<int> board(n, -1);
-    auto start = high_resolution_clock::now();
-    solve(board, 0, n);
-    auto end = high_resolution_clock::now();
-    duration<double> duration = end - start;
-    return duration.count();
-}
-int main() {
-    vector<int> test_values = { 4, 5, 6, 7, 8, 9, 10,
-                               11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-                               21, 22, 23, 24, 25 };
-    ofstream csv("nqueens_dfs_results.csv");
-    csv << "N,Time(seconds)\n";
-    cout << "DFS - blindly searching...\n";
-    for (int n : test_values) {
-        cout << "Running for N = " << n << "...\n";
-        double time_taken = dfs_blind(n);
-        cout << "Time taken: " << time_taken << " seconds\n";
-        csv << n << "," << time_taken << "\n";
-    }
-    csv.close();
-    cout << "Results saved to nqueens_dfs_results.csv\n";
-    return 0;
-}
-*/
-
-#include <iostream>
-#include <vector>
-#include <chrono>
-#include <fstream>
-using namespace std;
-using namespace std::chrono;
-
-// Check if placing a queen at (row, col) is safe
-bool is_safe(const vector<int>& board, int row, int col) {
-    for (int i = 0; i < row; ++i) {
-        if (board[i] == col ||
-            board[i] - i == col - row ||
-            board[i] + i == col + row) {
-            return false;
-        }
-    }
-    return true;
-}
-
-// Recursive DFS to find all solutions
 void solve_all(vector<int>& board, int row, int n, int& count) {
     if (row == n) {
         count++;
@@ -226,8 +164,6 @@ void solve_all(vector<int>& board, int row, int n, int& count) {
         }
     }
 }
-
-// Runs DFS for all solutions and returns time taken
 double dfs_blind(int n, int& solution_count) {
     vector<int> board(n, -1);
     solution_count = 0;
@@ -237,15 +173,12 @@ double dfs_blind(int n, int& solution_count) {
     duration<double> duration = end - start;
     return duration.count();
 }
-
 int main() {
     vector<int> test_values = { 4, 5, 6, 7, 8, 9, 10,
                                11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
                                21, 22, 23, 24, 25 };
-
     ofstream csv("nqueens_dfs_results.csv");
     csv << "N,Time(seconds),Solutions\n";
-
     cout << "DFS - blindly searching all solutions for N-Queens...\n";
     for (int n : test_values) {
         cout << "Running for N = " << n << "...\n";
@@ -254,7 +187,6 @@ int main() {
         cout << "Time taken: " << time_taken << " seconds, Solutions: " << solution_count << "\n";
         csv << n << "," << time_taken << "," << solution_count << "\n";
     }
-
     csv.close();
     cout << "Results saved to nqueens_dfs_results.csv\n";
     return 0;
