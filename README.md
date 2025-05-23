@@ -22,14 +22,21 @@ A local search algorithm that starts with a complete assignment and iteratively 
 - **Number of Valid Solutions Found**: Validates correctness and completeness.
 - **Number of Steps/Assignments**: Insight into algorithmic efficiency.
 
-## How to Use
+## Requirements
 
-### Requirements
-
-#### C++
+### C++
+- used libraries:
+  1. iostream
+  2. vector
+  3. chrono
+  4. fstream
+  5. algorithm
+  6. unordered_set
 - C++11 or higher
 - `g++` or any modern C++ compiler
 
-#### Python
+### Python
+- used libraries:
+  1.matplotlib - pyplot moduel
+  2. pandas
 - Python 3.7+
-- No external libraries required
