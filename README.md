@@ -37,6 +37,6 @@ A local search algorithm that starts with a complete assignment and iteratively 
 
 ### Python
 - used libraries:
-  1.matplotlib - pyplot moduel
+  1. matplotlib - pyplot moduel
   2. pandas
 - Python 3.7+
