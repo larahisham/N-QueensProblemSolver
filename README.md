@@ -40,3 +40,11 @@ A local search algorithm that starts with a complete assignment and iteratively 
   1. matplotlib - pyplot moduel
   2. pandas
 - Python 3.7+
+
+## Contact 
+For any questions or inquiries, please contact larahishamahmadby@gmail.com or lhbaniyasin22@cit.just.edu.jo
+## LICENSE
+This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or distribute this software, for any purpose, commercial or non-commercial, and by any means.
+
